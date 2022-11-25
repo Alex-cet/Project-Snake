@@ -1,0 +1,79 @@
+body {
+    text-align: center;
+    background-color: grey;
+    font-family: sans-serif;
+}
+
+#stats {
+    margin: auto;
+    width: 600px;
+    height: 75px;
+    background-color: rgb(50, 104, 50);
+}
+
+#box {
+    margin: auto;
+    width: 600px;
+    height: 550px;
+    background-color: forestgreen;
+}
+
+#appleImage {
+    margin-top: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+img {
+    width: 25px;
+    height: 25px;
+}
+
+#appleCounter {
+    font-size: 18px;
+    color: white;
+    position: relative;
+    margin-top: 8px;
+}
+
+#grid table {
+    border-collapse: collapse;
+    text-align: center;
+    display: inline-block;
+}
+
+.cell {
+    width: 30px;
+    height: 30px;
+    background-color: rgb(213, 255, 114);
+}
+
+.snakeHead {
+    background-color: rgb(52, 214, 255) !important;
+}
+
+.snakeEndTail {
+    background-color: royalblue !important;
+}
+
+.snakeTail {
+    background-color: royalblue !important;
+}
+
+.resetButton {
+    background-color:rgb(231, 52, 52);
+    color: white;
+    font-size: 16px;
+    padding: 13px 25px;
+    text-align: center;
+    border-radius: 8px;
+    border: 2px solid black;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.resetButton:hover {
+    background-color: white;
+    color: black;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
