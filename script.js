@@ -155,7 +155,7 @@ function handleDownArrow() {
     }
 }
 
-function snakeMoveLeft() {
+function iterateTailCells() {
     for (let i = snakeLength; i >= 0; --i) {
         if (i == snakeLength) {
             previousPositionRow = snake[i].id.split('-')[0];
@@ -166,66 +166,35 @@ function snakeMoveLeft() {
         } else if (i - 1 >= 0) {
             snake[i].id = snake[i - 1].id;
             document.getElementById(snake[i].id).className = "snakeTail";
-        } else if (i - 1 < 0) {
-            snake[0].id = snakeInitialRow + "-" + (--snakeInitialColumn);
-            document.getElementById(snake[0].id).className = "snakeHead";
         }
     }
+}
+
+function snakeMoveLeft() {
+    iterateTailCells();
+    snake[0].id = snakeInitialRow + "-" + (--snakeInitialColumn);
+    document.getElementById(snake[0].id).className = "snakeHead";
     checkAppleEaten(); 
 }
 
 function snakeMoveUP() {
-    for (let i = snakeLength; i >= 0; --i) {
-        if (i == snakeLength) {
-            document.getElementById(snake[i].id).className = "cell";
-            snake[i].id = snake[i - 1].id;
-            document.getElementById(snake[i].id).className = "snakeEndTail";
-        } else if (i - 1 >= 0) {
-            snake[i].id = snake[i - 1].id;
-            document.getElementById(snake[i].id).className = "snakeTail";
-        } else if (i - 1 < 0) {
-            snake[0].id = (--snakeInitialRow) + "-" + snakeInitialColumn;
-            document.getElementById(snake[0].id).className = "snakeHead";
-        }
-    }
+    iterateTailCells();
+    snake[0].id = (--snakeInitialRow) + "-" + snakeInitialColumn;
+    document.getElementById(snake[0].id).className = "snakeHead";
     checkAppleEaten();
 }
 
 function snakeMoveRight() {
-    for (let i = snakeLength; i >= 0; --i) {
-        if (i == snakeLength) {
-            previousPositionRow = snake[i].id.split('-')[0];
-            previousPositionColumn = snake[i].id.split('-')[1];
-            document.getElementById(snake[i].id).className = "cell";
-            snake[i].id = snake[i - 1].id;
-            document.getElementById(snake[i].id).className = "snakeEndTail";
-        } else if (i - 1 >= 0) {
-            snake[i].id = snake[i - 1].id;
-            document.getElementById(snake[i].id).className = "snakeTail";
-        } else if (i - 1 < 0) {
-            snake[0].id = snakeInitialRow + "-" + (++snakeInitialColumn);
-            document.getElementById(snake[0].id).className = "snakeHead";
-        }
-    }
+    iterateTailCells();
+    snake[0].id = snakeInitialRow + "-" + (++snakeInitialColumn);
+    document.getElementById(snake[0].id).className = "snakeHead";
     checkAppleEaten();
 }
 
 function snakeMoveDown() {
-    for (let i = snakeLength; i >= 0; --i) {
-        if (i == snakeLength) {
-            previousPositionRow = snake[i].id.split('-')[0];
-            previousPositionColumn = snake[i].id.split('-')[1];
-            document.getElementById(snake[i].id).className = "cell";
-            snake[i].id = snake[i - 1].id;
-            document.getElementById(snake[i].id).className = "snakeEndTail";
-        } else if (i - 1 >= 0) {
-            snake[i].id = snake[i - 1].id;
-            document.getElementById(snake[i].id).className = "snakeTail";
-        } else if (i - 1 < 0) {
-            snake[0].id = (++snakeInitialRow) + "-" + snakeInitialColumn;
-            document.getElementById(snake[0].id).className = "snakeHead";
-        }
-    }
+    iterateTailCells();
+    snake[0].id = (++snakeInitialRow) + "-" + snakeInitialColumn;
+    document.getElementById(snake[0].id).className = "snakeHead";
     checkAppleEaten();
 }
 
