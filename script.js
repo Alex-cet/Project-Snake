@@ -64,40 +64,36 @@ function keyHandler(e) {
     clearInterval(previousInterval);
     if (e.keyCode == '37' && previousKeyPressed != '39') {
         if (endGame == 0) {
-            leftArrowInterval = setInterval(function() {
+            previousInterval = setInterval(function() {
                 handleLeftArrow();
             }, 100)
-            previousInterval = leftArrowInterval;
             previousKeyPressed = '37';
         } else {
             e.preventDefault();
         }
     } else if (e.keyCode == '38' && previousKeyPressed != '40') {
         if (endGame == 0) {
-            upArrowInterval = setInterval(function() {
+            previousInterval = setInterval(function() {
                 handleUpArrow();   
             }, 100)
-            previousInterval = upArrowInterval;
             previousKeyPressed = '38';
         } else {
             e.preventDefault();
         }
     } else if (e.keyCode == '39' && previousKeyPressed != '37') {
         if (endGame == 0) {
-            rightArrowInterval = setInterval(function() {
+            previousInterval = setInterval(function() {
                 handleRightArrow();   
             }, 100)
-            previousInterval = rightArrowInterval;
             previousKeyPressed = '39';
         } else {
             e.preventDefault();
         }
     } else if (e.keyCode == '40' && previousKeyPressed != '38') {
         if (endGame == 0) {
-            downArrowInterval = setInterval(function() {
+            previousInterval = setInterval(function() {
                 handleDownArrow();            
             }, 100)
-            previousInterval = downArrowInterval;
             previousKeyPressed = '40';
         } else {
             e.preventDefault();
